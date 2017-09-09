@@ -5,14 +5,21 @@ var guessesLeft = 9;
 
 var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
 var guessedLetter = [];
+var alpha = "[ A-Za-z]";
+
+// still need to do:
+// -limit only to alpha characters
 
 
 document.onkeyup = function(event) {
     var userGuess = event.key;
-    guessedLetter.push(userGuess);
+
+    var alreadyGuessed = guessedLetter.indexOf(userGuess);
     console.log(userGuess);
     console.log(computerGuess);
     console.log(guessedLetter);
+    console.log("already guessed" + alreadyGuessed);
+
 
 
     if (userGuess === computerGuess) {
@@ -20,8 +27,9 @@ document.onkeyup = function(event) {
         computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
         guessesLeft = 9;
         guessedLetter = [];
-    } else if (userGuess !== computerGuess) {
+    } else if ((alreadyGuessed == "-1") && userGuess !== computerGuess) {
         guessesLeft = guessesLeft - 1;
+        guessedLetter.push(userGuess);
     }
 
     if (guessesLeft === 0) {
@@ -29,7 +37,16 @@ document.onkeyup = function(event) {
         computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
         guessesLeft = 9;
         guessedLetter = [];
+
+        if (userGuess !== alpha) {
+            alert("not a letter");
+        }
+
+
+
     }
+
+
 
 
     var html = "<h1>The Psychic Game</h1>" +
