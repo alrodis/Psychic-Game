@@ -1,9 +1,10 @@
 body {
-	line-height: 200%;
+    line-height: 200%;
+    margin-left: 20px;
 }
 
 
 h1 {
-	font-size: 25px;
-	font-weight: bold;
+    font-size: 25px;
+    font-weight: bold;
 }

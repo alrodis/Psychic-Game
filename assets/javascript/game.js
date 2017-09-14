@@ -5,11 +5,14 @@ var guessesLeft = 9;
 
 var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
 var guessedLetter = [];
-var alpha = "[ A-Za-z]";
+// my attempt to not count a "non-alpha" key
+// var alpha = "[ A-Za-z]";
 
-// still need to do:
-// -limit only to alpha characters
+// function something() {
+//     //code inside
+// }
 
+// something();
 
 document.onkeyup = function(event) {
     var userGuess = event.key;
@@ -38,16 +41,12 @@ document.onkeyup = function(event) {
         guessesLeft = 9;
         guessedLetter = [];
 
-        if (userGuess !== alpha) {
-            alert("not a letter");
-        }
-
-
+        // my attempt to not count a "non-alpha" key
+        // if (userGuess !== alpha) {
+        //     alert("not a letter");
+        // }
 
     }
-
-
-
 
     var html = "<h1>The Psychic Game</h1>" +
         "<p>Guess what letter I'm thinking of</p>" +
@@ -55,8 +54,6 @@ document.onkeyup = function(event) {
         "<p>Losses: " + losses + "</p>" +
         "<p>Guesses left: " + guessesLeft + "</p>" +
         "<p>User Guess: " + guessedLetter + "</p>";
-
-
 
     document.querySelector('#game').innerHTML = html;
 }
